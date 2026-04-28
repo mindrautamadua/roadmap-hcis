@@ -141,12 +141,36 @@ export const chapters: Chapter[] = [
         title: "Tier 1 — HR Shared Services Center (SSC)",
         content: "Pusat layanan terpusat yang menangani pertanyaan dan permintaan administratif HR yang lebih kompleks dan tidak dapat diselesaikan melalui Self-Service. Berfokus pada standarisasi proses, efisiensi biaya, dan penyediaan Single Point of Contact bagi seluruh unit bisnis."
       },
-      { number: "5.4", title: "Tier 2 — Center of Excellence (CoE)" },
-      { number: "5.5", title: "Tier 3 — HR Business Partner & Specialist" },
-      { number: "5.6", title: "Service Catalog & SLA Definition" },
-      { number: "5.7", title: "Case Management & HR Ticketing Model" },
-      { number: "5.8", title: "HR Contact Center Strategy" },
-      { number: "5.9", title: "Continuous Service Improvement" },
+      { 
+        number: "5.4", 
+        title: "Tier 2 — Center of Excellence (CoE)",
+        content: "Kumpulan ahli subjek (Subject Matter Experts) yang merancang kebijakan, program, dan sistem HR strategis seperti Talent Management, Rewards, dan Organizational Development. CoE fokus pada inovasi dan memastikan seluruh inisiatif HR mendukung target jangka panjang perusahaan."
+      },
+      { 
+        number: "5.5", 
+        title: "Tier 3 — HR Business Partner & Specialist",
+        content: "Konsultan HR internal yang bekerja langsung dengan pimpinan unit bisnis untuk menyelaraskan strategi SDM dengan kebutuhan operasional spesifik. Mereka berperan sebagai mitra strategis dalam perencanaan tenaga kerja, manajemen kinerja, dan pengembangan budaya di unit masing-masing."
+      },
+      { 
+        number: "5.6", 
+        title: "Service Catalog & SLA Definition",
+        content: "Daftar standar layanan HR yang tersedia bagi karyawan, lengkap dengan definisi waktu penyelesaian (Service Level Agreement). Digitalisasi katalog ini melalui IHCMIS memastikan transparansi dan akuntabilitas dalam setiap permintaan layanan HR."
+      },
+      { 
+        number: "5.7", 
+        title: "Case Management & HR Ticketing Model",
+        content: "Sistem pelacakan permintaan layanan terpadu untuk mengelola seluruh tiket atau kasus HR dari awal hingga selesai. Memungkinkan tim Shared Services untuk memprioritaskan tugas, berkolaborasi dalam penyelesaian masalah, dan memberikan riwayat status yang jelas kepada user."
+      },
+      { 
+        number: "5.8", 
+        title: "HR Contact Center Strategy",
+        content: "Strategi komunikasi multi-channel (Omnichannel) yang mencakup chatbot AI, telepon, dan portal mandiri untuk menjawab pertanyaan rutin karyawan. Bertujuan memberikan bantuan instan untuk informasi umum sehingga tim HR dapat fokus pada masalah yang lebih kompleks."
+      },
+      { 
+        number: "5.9", 
+        title: "Continuous Service Improvement",
+        content: "Mekanisme evaluasi berkala terhadap kualitas layanan HR menggunakan data analitik dari ticketing system dan feedback karyawan. Fokus pada identifikasi hambatan proses (bottlenecks) dan optimasi sistem secara berkelanjutan untuk mencapai standar 'Best-in-Class HR Service'."
+      },
     ],
     outputs: ["HR Service Delivery Blueprint", "Service Catalog", "SLA Framework"],
     frameworks: ["ITIL v4 (adapted for HR)", "Gartner HR Service Delivery Model"],
