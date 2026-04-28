@@ -92,16 +92,22 @@ export default async function ChapterPage({ params }: Props) {
 
           <div className="flex flex-col gap-2">
             {chapter.sections.map((section, i) => (
-              <div
+              <Link
                 key={section.number}
-                className={`glass rounded-xl px-4 py-3 flex items-center gap-3 animate-fade-in-up`}
+                href={`/bab/${chapter.id}/${section.number}`}
+                className={`glass rounded-xl px-4 py-3 flex items-center gap-3 animate-fade-in-up card-hover`}
                 style={{ animationDelay: `${i * 60 + 200}ms` }}
               >
                 <span className="section-badge text-xs font-mono font-bold px-2 py-1 rounded-lg text-slate-300 flex-shrink-0 min-w-[3rem] text-center">
                   {section.number}
                 </span>
                 <p className="text-sm text-slate-200 leading-snug">{section.title}</p>
-              </div>
+                <div className="ml-auto text-slate-500">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

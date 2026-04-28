@@ -1,6 +1,7 @@
 export interface Section {
   number: string;
   title: string;
+  content?: string;
 }
 
 export interface Chapter {
@@ -125,9 +126,21 @@ export const chapters: Chapter[] = [
     gradient: "from-sky-900/40 to-blue-900/40",
     isNew: true,
     sections: [
-      { number: "5.1", title: "HR Service Delivery Framework" },
-      { number: "5.2", title: "Tier 0 — Employee & Manager Self-Service (ESS/MSS)" },
-      { number: "5.3", title: "Tier 1 — HR Shared Services Center (SSC)" },
+      { 
+        number: "5.1", 
+        title: "HR Service Delivery Framework",
+        content: "Framework Layanan HR yang mengintegrasikan SAP HR dan IHCMIS untuk memberikan pengalaman layanan yang mulus. Framework ini mencakup strategi penyampaian layanan mulai dari otomatisasi (Self-Service) hingga konsultasi strategis oleh HR Business Partner. Tujuannya adalah untuk meningkatkan efisiensi operasional sebesar 30% dan kepuasan karyawan melalui respon yang lebih cepat dan terstandarisasi."
+      },
+      { 
+        number: "5.2", 
+        title: "Tier 0 — Employee & Manager Self-Service (ESS/MSS)",
+        content: "Otomatisasi layanan HR melalui platform digital yang memungkinkan karyawan dan manajer melakukan transaksi mandiri. Mencakup pengajuan cuti, klaim benefit, perubahan data personal, dan persetujuan administratif secara real-time melalui perangkat mobile maupun desktop."
+      },
+      { 
+        number: "5.3", 
+        title: "Tier 1 — HR Shared Services Center (SSC)",
+        content: "Pusat layanan terpusat yang menangani pertanyaan dan permintaan administratif HR yang lebih kompleks dan tidak dapat diselesaikan melalui Self-Service. Berfokus pada standarisasi proses, efisiensi biaya, dan penyediaan Single Point of Contact bagi seluruh unit bisnis."
+      },
       { number: "5.4", title: "Tier 2 — Center of Excellence (CoE)" },
       { number: "5.5", title: "Tier 3 — HR Business Partner & Specialist" },
       { number: "5.6", title: "Service Catalog & SLA Definition" },
@@ -151,8 +164,16 @@ export const chapters: Chapter[] = [
     gradient: "from-rose-900/40 to-pink-900/40",
     isNew: true,
     sections: [
-      { number: "6.1", title: "Employee Experience Vision & Principles" },
-      { number: "6.2", title: "Employee Persona Development" },
+      { 
+        number: "6.1", 
+        title: "Employee Experience Vision & Principles",
+        content: "Visi EX 2030 adalah menciptakan lingkungan kerja yang bermakna, produktif, dan berpusat pada manusia. Prinsip utama mencakup: Empati dalam Desain, Personalisasi Layanan, dan Keseragaman Pengalaman lintas perangkat."
+      },
+      { 
+        number: "6.2", 
+        title: "Employee Persona Development",
+        content: "Identifikasi profil karyawan berdasarkan peran, kebutuhan, dan aspirasi digital mereka. Persona membantu tim pengembang dalam membangun fitur yang benar-benar relevan bagi segmen karyawan yang berbeda, mulai dari operasional lapangan hingga level eksekutif."
+      },
       { number: "6.3", title: "Employee Journey Mapping (Hire-to-Retire)" },
       { number: "6.4", title: "Moment-That-Matters Analysis" },
       { number: "6.5", title: "ESS/MSS UX Design Principles" },
