@@ -198,13 +198,41 @@ export const chapters: Chapter[] = [
         title: "Employee Persona Development",
         content: "Identifikasi profil karyawan berdasarkan peran, kebutuhan, dan aspirasi digital mereka. Persona membantu tim pengembang dalam membangun fitur yang benar-benar relevan bagi segmen karyawan yang berbeda, mulai dari operasional lapangan hingga level eksekutif."
       },
-      { number: "6.3", title: "Employee Journey Mapping (Hire-to-Retire)" },
-      { number: "6.4", title: "Moment-That-Matters Analysis" },
-      { number: "6.5", title: "ESS/MSS UX Design Principles" },
-      { number: "6.6", title: "Mobile-First Interaction Design" },
-      { number: "6.7", title: "eNPS & EX Measurement Framework" },
-      { number: "6.8", title: "Well-being & Digital Ergonomics" },
-      { number: "6.9", title: "EX Feedback Loop & Continuous Listening" },
+      { 
+        number: "6.3", 
+        title: "Employee Journey Mapping (Hire-to-Retire)",
+        content: "Visualisasi seluruh rangkaian interaksi karyawan dengan perusahaan, mulai dari fase rekrutmen, onboarding, pengembangan karir, hingga masa purnabakti. Pemetaan ini membantu mengidentifikasi titik gesekan (friction points) dan peluang untuk meningkatkan keterlibatan karyawan di setiap tahapan."
+      },
+      { 
+        number: "6.4", 
+        title: "Moment-That-Matters Analysis",
+        content: "Identifikasi titik-titik kritis dalam karir karyawan yang memiliki dampak emosional dan profesional terbesar (seperti hari pertama bekerja, promosi, atau masa transisi peran). Fokus pada optimasi momen-momen ini untuk membangun loyalitas dan kepuasan kerja yang mendalam."
+      },
+      { 
+        number: "6.5", 
+        title: "ESS/MSS UX Design Principles",
+        content: "Penerapan prinsip desain antarmuka yang intuitif, bersih, dan konsisten untuk portal mandiri karyawan dan manajer. Memastikan setiap transaksi HR dapat diselesaikan dengan minimal klik, navigasi yang mudah dipahami, dan waktu muat (loading) yang cepat."
+      },
+      { 
+        number: "6.6", 
+        title: "Mobile-First Interaction Design",
+        content: "Strategi pengembangan fitur yang memprioritaskan penggunaan perangkat mobile untuk mendukung fleksibilitas kerja. Menjamin seluruh layanan HR dapat diakses kapan saja dan di mana saja dengan tampilan yang responsif dan fitur pendukung seperti push-notifications."
+      },
+      { 
+        number: "6.7", 
+        title: "eNPS & EX Measurement Framework",
+        content: "Sistem pengukuran loyalitas dan kepuasan karyawan secara periodik menggunakan metrik Employee Net Promoter Score (eNPS). Data ini digunakan sebagai indikator kesehatan budaya organisasi dan efektivitas inisiatif pengalaman karyawan yang dijalankan."
+      },
+      { 
+        number: "6.8", 
+        title: "Well-being & Digital Ergonomics",
+        content: "Integrasi fitur pendukung kesejahteraan karyawan dalam platform digital, seperti pengingat istirahat, akses ke sumber daya kesehatan, dan desain antarmuka yang mengurangi kelelahan kognitif. Menciptakan keseimbangan antara produktivitas dan kesehatan mental karyawan."
+      },
+      { 
+        number: "6.9", 
+        title: "EX Feedback Loop & Continuous Listening",
+        content: "Membangun mekanisme umpan balik berkelanjutan (continuous listening) melalui survei singkat (pulse surveys) dan kotak saran digital. Memungkinkan perusahaan untuk merespon kebutuhan atau keluhan karyawan secara proaktif sebelum menjadi masalah besar."
+      },
     ],
     outputs: ["EX Blueprint", "Employee Persona Catalog", "Journey Maps"],
     frameworks: ["Design Thinking (IDEO)", "Gartner EX Framework", "eNPS Methodology"],
