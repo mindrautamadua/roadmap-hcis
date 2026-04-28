@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   title: "Roadmap HCIS 2026–2030",
   description: "Human Capital Information System Roadmap — SAP + IHCMIS, Full Hire-to-Retire Transformation",
   manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Roadmap HCIS",
+  },
 };
 
 export const viewport: Viewport = {
