@@ -12,7 +12,13 @@ const appendixColors = [
   { color: "from-violet-500 to-purple-500", bg: "from-violet-900/40 to-purple-900/40", text: "text-violet-400", border: "border-violet-500/30" },
 ];
 
-const appendixIcons = ["🗺️", "🔄", "📦", "🗃️", "🔗", "⚡", "📚"];
+const appendixIcons = ["🗺️", "🔄", "📦", "🗃️", "🔗", "⚡", "📚", "📋", "🔏", "🏆", "🗂️", "🔵"];
+// Lampiran G (index 6) = Glossary → terhubung ke halaman /glossary
+// Lampiran L (index 11) = Service Blueprint Master → terhubung ke /bab/6/6.4
+const appendixLinks: Record<string, string> = {
+  G: "/glossary",
+  L: "/bab/6/6.4",
+};
 
 export default function LampiranPage() {
   return (
@@ -42,29 +48,48 @@ export default function LampiranPage() {
           {appendix.map((item, i) => {
             const style = appendixColors[i % appendixColors.length];
             const icon = appendixIcons[i % appendixIcons.length];
-            return (
-              <div
-                key={item.code}
-                className={`glass rounded-2xl p-4 card-hover animate-fade-in-up`}
-                style={{ animationDelay: `${i * 80}ms` }}
-              >
-                <div className="flex items-center gap-4">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${style.color} flex items-center justify-center text-2xl flex-shrink-0 shadow-lg`}>
-                    {icon}
-                  </div>
-                  <div className="flex-1">
+            const href = appendixLinks[item.code];
+            const cardContent = (
+              <div className="flex items-center gap-4">
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${style.color} flex items-center justify-center text-2xl flex-shrink-0 shadow-lg`}>
+                  {icon}
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
                     <span className={`text-xs font-bold px-2 py-0.5 rounded-full bg-gradient-to-r ${style.color} text-white`}>
                       Lampiran {item.code}
                     </span>
-                    <h3 className="text-sm font-semibold text-white mt-1.5">{item.title}</h3>
+                    {href && (
+                      <span className="text-[10px] text-green-400 glass-light px-1.5 py-0.5 rounded-md border border-green-500/30">
+                        Tersedia →
+                      </span>
+                    )}
                   </div>
-                  <div className={`w-8 h-8 rounded-xl glass-light border ${style.border} flex items-center justify-center flex-shrink-0`}>
+                  <h3 className="text-sm font-semibold text-white mt-1.5">{item.title}</h3>
+                </div>
+                <div className={`w-8 h-8 rounded-xl glass-light border ${style.border} flex items-center justify-center flex-shrink-0`}>
+                  {href ? (
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={style.text}>
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  ) : (
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={style.text}>
                       <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
                       <polyline points="14 2 14 8 20 8" />
                     </svg>
-                  </div>
+                  )}
                 </div>
+              </div>
+            );
+            return href ? (
+              <Link key={item.code} href={href}>
+                <div className={`glass rounded-2xl p-4 card-hover animate-fade-in-up`} style={{ animationDelay: `${i * 80}ms` }}>
+                  {cardContent}
+                </div>
+              </Link>
+            ) : (
+              <div key={item.code} className={`glass rounded-2xl p-4 animate-fade-in-up`} style={{ animationDelay: `${i * 80}ms` }}>
+                {cardContent}
               </div>
             );
           })}
