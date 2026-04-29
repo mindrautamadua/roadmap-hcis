@@ -1,7 +1,15 @@
+export interface SwimLane {
+  label: string;
+  color: string;
+  items: string[];
+}
+
 export interface Section {
   number: string;
   title: string;
   content?: string;
+  keyPoints?: string[];
+  swimlanes?: SwimLane[];
 }
 
 export interface Chapter {
@@ -167,13 +175,39 @@ export const chapters: Chapter[] = [
         content: "Strategi komunikasi multi-channel (Omnichannel) yang mencakup chatbot AI, telepon, dan portal mandiri untuk menjawab pertanyaan rutin karyawan. Bertujuan memberikan bantuan instan untuk informasi umum sehingga tim HR dapat fokus pada masalah yang lebih kompleks."
       },
       { 
-        number: "5.9", 
+        number: "5.9",
         title: "Continuous Service Improvement",
         content: "Mekanisme evaluasi berkala terhadap kualitas layanan HR menggunakan data analitik dari ticketing system dan feedback karyawan. Fokus pada identifikasi hambatan proses (bottlenecks) dan optimasi sistem secara berkelanjutan untuk mencapai standar 'Best-in-Class HR Service'."
       },
+      {
+        number: "5.10",
+        title: "HR Service Experience Level Agreement (XLA)",
+        content: "Evolusi dari SLA (5.6) menuju pengukuran yang berpusat pada manusia — XLA mengukur bukan apakah layanan diselesaikan secara teknis tepat waktu, melainkan apakah karyawan benar-benar merasa terlayani dengan baik. Gartner memperkenalkan XLA sejak 2019; di 2026 semua vendor ITSM mayor (ServiceNow, Nexthink, Ivanti) sudah memiliki XLA module. Untuk HCIS yang menargetkan employee-centric experience, XLA adalah mandatory — menjadi jembatan antara SLA operasional (5.6) dan EX measurement strategis (BAB 6), sekaligus menjadi input utama untuk Continuous Service Improvement (5.9).",
+        keyPoints: [
+          "Employee Satisfaction Score (ESAT) per interaksi layanan: survei mikro (1-2 pertanyaan) yang muncul segera setelah setiap tiket HR diselesaikan",
+          "Perceived Resolution Quality: mengukur apakah karyawan merasa masalahnya benar-benar selesai — berbeda dari SLA yang hanya mengukur apakah tiket ditutup",
+          "Ease of Service Score: seberapa mudah karyawan berinteraksi dengan layanan HR (skala Customer Effort Score, diadaptasi untuk karyawan)",
+          "Emotional Sentiment Tracking: analisis sentimen dari komentar bebas karyawan pasca-interaksi untuk mendeteksi frustrasi atau kepuasan yang tidak tergambar dalam skor angka",
+          "XLA Dashboard: visualisasi XLA vs SLA secara berdampingan — memungkinkan identifikasi layanan yang 'SLA hijau tapi XLA merah' (selesai tepat waktu tapi karyawan tidak puas)",
+          "XLA Threshold & Remediation: penetapan ambang batas XLA minimum per kategori layanan dan prosedur perbaikan bila threshold tidak terpenuhi",
+        ],
+      },
+      {
+        number: "5.11",
+        title: "Service Cost Transparency Model",
+        content: "Langkah maturitas ketiga HR SSC setelah Quality (SLA, 5.6) dan Experience (XLA, 5.10) — memvisualisasikan biaya nyata setiap transaksi layanan HR kepada pemangku kepentingan. Berbeda dari BAB 17 (TCO) yang mengukur biaya total investasi program: sub-bab ini beroperasi di level granular unit cost per transaksi layanan, memungkinkan keputusan berbasis data tentang di mana otomasi memberikan nilai tertinggi, apakah SSC lebih efisien dari model desentralisasi, dan bagaimana perilaku demand karyawan berubah ketika cost visibility diterapkan.",
+        keyPoints: [
+          "Cost per HR Transaction: kalkulasi biaya per unit layanan berdasarkan Activity-Based Costing — contoh: biaya memproses 1 permohonan cuti via manual (Rp X) vs. self-service ESS (Rp X/8)",
+          "Show-back vs Charge-back: keputusan model transparansi — show-back (BU melihat biaya tanpa membayar langsung) biasanya lebih tepat untuk fase awal; charge-back (penagihan nyata ke BU) untuk maturitas lanjut",
+          "Service Cost Catalog: daftar harga internal setiap layanan HR SSC yang dikomunikasikan ke seluruh unit bisnis — mendorong demand management yang lebih rasional",
+          "Cost Driver Analysis: identifikasi penyebab utama biaya tinggi per layanan (volume, kompleksitas, manual effort) sebagai input prioritas otomasi dan perbaikan proses",
+          "Benchmarking vs Industri: membandingkan cost per HR FTE dan cost per transaction dengan benchmark SHRM/Gartner/APQC untuk mengukur posisi efisiensi relatif organisasi",
+          "Cost-Quality-Experience Dashboard: visualisasi terpadu SLA + XLA + Cost dalam satu tampilan — tiga dimensi untuk setiap layanan HR, memudahkan keputusan investasi dan perbaikan",
+        ],
+      },
     ],
-    outputs: ["HR Service Delivery Blueprint", "Service Catalog", "SLA Framework"],
-    frameworks: ["ITIL v4 (adapted for HR)", "Gartner HR Service Delivery Model"],
+    outputs: ["HR Service Delivery Blueprint", "Service Catalog", "SLA Framework", "XLA Dashboard", "Service Cost Catalog", "Cost-Quality-Experience Dashboard"],
+    frameworks: ["ITIL v4 (adapted for HR)", "Gartner HR Service Delivery Model", "XLA (Gartner 2019+)", "Customer Effort Score (adapted)", "Activity-Based Costing (ABC)", "APQC HR Cost Benchmarking"],
   },
 
   // ─── BAB 6 (NEW) ─────────────────────────────────────────────────────────
@@ -203,39 +237,59 @@ export const chapters: Chapter[] = [
         title: "Employee Journey Mapping (Hire-to-Retire)",
         content: "Visualisasi seluruh rangkaian interaksi karyawan dengan perusahaan, mulai dari fase rekrutmen, onboarding, pengembangan karir, hingga masa purnabakti. Pemetaan ini membantu mengidentifikasi titik gesekan (friction points) dan peluang untuk meningkatkan keterlibatan karyawan di setiap tahapan."
       },
-      { 
-        number: "6.4", 
+      {
+        number: "6.4",
+        title: "Service Blueprint Design",
+        content: "Service Blueprint adalah artefak visual yang secara simultan memetakan frontstage (interaksi karyawan yang terlihat), backstage (proses pendukung yang tidak terlihat), support processes (sistem & integrasi), physical evidence (touchpoint), dan line of visibility — jembatan metodologis antara Employee Journey Map (6.3) dan HR Service Delivery Model (BAB 5). Setiap baris pada blueprint menggambarkan satu layer layanan, memungkinkan tim HR dan IT untuk mengidentifikasi fail points, bottleneck, dan peluang otomasi secara presisi.",
+        keyPoints: [
+          "Frontstage Actions: Apa yang dilakukan karyawan di portal ESS/MSS",
+          "Line of Visibility: Batas antara proses yang terlihat dan tidak terlihat karyawan",
+          "Backstage Actions: Proses verifikasi, approval, dan notifikasi oleh HR/manajer",
+          "Support Processes: Integrasi SAP, IHCMIS, middleware, dan notifikasi email/WhatsApp",
+          "Physical Evidence: Email konfirmasi, payslip digital, sertifikat pelatihan",
+          "Fail Points & Wait Times: Titik risiko keterlambatan dan kegagalan layanan"
+        ],
+        swimlanes: [
+          { label: "Physical Evidence", color: "slate", items: ["Portal login page", "Form input ESS/MSS", "Email/push notifikasi", "Payslip & dokumen digital", "Dashboard status pengajuan"] },
+          { label: "Employee Actions (Frontstage)", color: "blue", items: ["Login ESS/MSS", "Isi & submit form (cuti, klaim, dsb)", "Pantau status pengajuan", "Terima notifikasi hasil", "Download dokumen output"] },
+          { label: "── Line of Visibility ──", color: "yellow", items: [] },
+          { label: "HR / Manager Actions (Backstage)", color: "purple", items: ["Terima notifikasi approval task", "Review & validasi permohonan", "Approve/reject via MSS", "Eskalasi ke CoE bila diperlukan", "Kirim konfirmasi ke karyawan"] },
+          { label: "Support Processes & Systems", color: "green", items: ["IHCMIS: routing & workflow engine", "SAP: update data record & payroll", "Middleware: sinkronisasi antar sistem", "Notification service: email & WhatsApp", "Audit trail & logging"] }
+        ]
+      },
+      {
+        number: "6.5",
         title: "Moment-That-Matters Analysis",
         content: "Identifikasi titik-titik kritis dalam karir karyawan yang memiliki dampak emosional dan profesional terbesar (seperti hari pertama bekerja, promosi, atau masa transisi peran). Fokus pada optimasi momen-momen ini untuk membangun loyalitas dan kepuasan kerja yang mendalam."
       },
-      { 
-        number: "6.5", 
+      {
+        number: "6.6",
         title: "ESS/MSS UX Design Principles",
         content: "Penerapan prinsip desain antarmuka yang intuitif, bersih, dan konsisten untuk portal mandiri karyawan dan manajer. Memastikan setiap transaksi HR dapat diselesaikan dengan minimal klik, navigasi yang mudah dipahami, dan waktu muat (loading) yang cepat."
       },
-      { 
-        number: "6.6", 
+      {
+        number: "6.7",
         title: "Mobile-First Interaction Design",
         content: "Strategi pengembangan fitur yang memprioritaskan penggunaan perangkat mobile untuk mendukung fleksibilitas kerja. Menjamin seluruh layanan HR dapat diakses kapan saja dan di mana saja dengan tampilan yang responsif dan fitur pendukung seperti push-notifications."
       },
-      { 
-        number: "6.7", 
+      {
+        number: "6.8",
         title: "eNPS & EX Measurement Framework",
         content: "Sistem pengukuran loyalitas dan kepuasan karyawan secara periodik menggunakan metrik Employee Net Promoter Score (eNPS). Data ini digunakan sebagai indikator kesehatan budaya organisasi dan efektivitas inisiatif pengalaman karyawan yang dijalankan."
       },
-      { 
-        number: "6.8", 
+      {
+        number: "6.9",
         title: "Well-being & Digital Ergonomics",
         content: "Integrasi fitur pendukung kesejahteraan karyawan dalam platform digital, seperti pengingat istirahat, akses ke sumber daya kesehatan, dan desain antarmuka yang mengurangi kelelahan kognitif. Menciptakan keseimbangan antara produktivitas dan kesehatan mental karyawan."
       },
-      { 
-        number: "6.9", 
+      {
+        number: "6.10",
         title: "EX Feedback Loop & Continuous Listening",
         content: "Membangun mekanisme umpan balik berkelanjutan (continuous listening) melalui survei singkat (pulse surveys) dan kotak saran digital. Memungkinkan perusahaan untuk merespon kebutuhan atau keluhan karyawan secara proaktif sebelum menjadi masalah besar."
       },
     ],
-    outputs: ["EX Blueprint", "Employee Persona Catalog", "Journey Maps"],
-    frameworks: ["Design Thinking (IDEO)", "Gartner EX Framework", "eNPS Methodology"],
+    outputs: ["EX Blueprint", "Employee Persona Catalog", "Journey Maps", "Service Blueprint Master (Lampiran L)"],
+    frameworks: ["Design Thinking (IDEO)", "Gartner EX Framework", "eNPS Methodology", "Service Design (Nielsen Norman Group)"],
   },
 
   // ─── BAB 7 ───────────────────────────────────────────────────────────────
@@ -261,9 +315,21 @@ export const chapters: Chapter[] = [
       { number: "7.9", title: "Data Architecture", content: "Struktur penyimpanan data yang mendukung keamanan, privasi, dan kebutuhan analitik tingkat lanjut." },
       { number: "7.10", title: "Technology Architecture", content: "Pemilihan stack teknologi pendukung, termasuk cloud infrastructure dan database yang tangguh." },
       { number: "7.11", title: "Security Architecture", content: "Kerangka keamanan untuk melindungi data sensitif SDM dari ancaman siber dan akses yang tidak sah." },
+      {
+        number: "7.12",
+        title: "Experience Architecture Mapping",
+        content: "Pemetaan sistematis dari setiap touchpoint dalam Employee Journey Map (BAB 6.3) ke komponen aplikasi yang bertanggung jawab melayaninya — menjawab pertanyaan: 'Fitur dan sistem apa yang harus ada agar setiap momen dalam perjalanan karyawan dapat terpenuhi secara digital?' Ini adalah jembatan antara desain pengalaman (BAB 6) dan arsitektur aplikasi (7.3), memastikan keputusan teknis selalu berakar pada kebutuhan nyata pengguna.",
+        keyPoints: [
+          "Journey-to-Application Matrix: setiap tahap Hire-to-Retire dipetakan ke modul SAP / IHCMIS / integrasi yang mendukungnya",
+          "Touchpoint Inventory: inventarisasi semua titik interaksi digital karyawan (portal, mobile app, email, chatbot)",
+          "Capability-to-Component Traceability: memastikan setiap EX capability dari BAB 4 memiliki realisasi teknis di BAB 7",
+          "Gap Identification: menemukan touchpoint yang belum memiliki komponen aplikasi pendukung",
+          "Prioritization Input: hasil pemetaan menjadi input utama untuk BAB 9 (Initiative Prioritization)",
+        ],
+      },
     ],
-    outputs: ["Target HCIS Blueprint", "Application Architecture Diagram"],
-    frameworks: ["TOGAF ADM", "SAP Reference Architecture"],
+    outputs: ["Target HCIS Blueprint", "Application Architecture Diagram", "Experience Architecture Map"],
+    frameworks: ["TOGAF ADM", "SAP Reference Architecture", "Service Design (NNG)"],
   },
 
   // ─── BAB 8 ───────────────────────────────────────────────────────────────
@@ -359,8 +425,35 @@ export const chapters: Chapter[] = [
       { number: "11.8", title: "Data Governance Model", content: "Aturan main dalam pengelolaan kepemilikan data, standar data, dan kualitas data SDM." },
       { number: "11.9", title: "Vendor Governance", content: "Mekanisme pengawasan kinerja vendor solusi dan mitra implementasi." },
       { number: "11.10", title: "Quality Assurance Framework", content: "Kerangka kerja penjaminan kualitas untuk meminimalkan bug dan kesalahan fungsional." },
+      {
+        number: "11.11",
+        title: "Digital HR Platform Governance",
+        content: "Tata kelola khusus untuk siklus hidup platform IHCMIS sebagai System of Engagement — mencakup release management, feature roadmap governance, architecture review board, dan keputusan deprecation. Berbeda dari Vendor Governance (11.9) yang mengatur hubungan kontraktual; sub-bab ini mengatur *bagaimana platform IHCMIS dikembangkan, diubah, dan dikelola secara internal* agar tetap relevan dan aman sepanjang 2026–2030.",
+        keyPoints: [
+          "IHCMIS Release Management: siklus rilis fitur (major/minor/patch) dengan approval gate yang jelas",
+          "Feature Roadmap Governance: proses pengajuan, evaluasi, dan prioritisasi permintaan fitur baru dari unit bisnis",
+          "Platform Architecture Review Board: komite teknis yang menilai dampak setiap perubahan arsitektur IHCMIS",
+          "Platform Health Monitoring: SLA uptime, performance benchmark, dan threshold eskalasi",
+          "Deprecation & Sunset Policy: prosedur penghentian fitur atau versi lama agar tidak menimbulkan technical debt",
+          "IHCMIS Lifecycle Roadmap: rencana evolusi platform 3–5 tahun ke depan selaras dengan roadmap bisnis",
+        ],
+      },
+      {
+        number: "11.12",
+        title: "Digital HR Product Management Model",
+        content: "IHCMIS bukan sekadar sistem IT — ia adalah produk digital yang harus dikelola layaknya produk teknologi kelas dunia. Sub-bab ini mendefinisikan model Product Management untuk IHCMIS: siapa Product Owner-nya, bagaimana backlog dikelola, bagaimana siklus rilis dijalankan, dan bagaimana suara karyawan (VoE, eNPS) diterjemahkan menjadi fitur nyata. Ini adalah operasionalisasi dari Platform Governance (11.11) — governance menetapkan aturan, product management menjalankannya.",
+        keyPoints: [
+          "Product Owner & Product Team: penetapan Product Owner IHCMIS dari sisi bisnis HC, didukung tim lintas-fungsi (IT, HR, UX)",
+          "Product Backlog Management: pengelolaan backlog berbasis Epics → User Stories → Tasks, diprioritaskan dengan framework WSJF atau MoSCoW",
+          "Release Cycle: siklus rilis terstruktur (misal: Major 2×/tahun, Minor 4×/tahun, Patch on-demand) selaras dengan kalender HR",
+          "Product Roadmap: roadmap fitur IHCMIS 12–18 bulan ke depan, dikomunikasikan ke seluruh stakeholder secara transparan",
+          "Feedback-to-Backlog Pipeline: mekanisme mengalirkan hasil VoE Survey (3.12), eNPS (6.8), dan support tickets (20.4) menjadi backlog item",
+          "Definition of Done & Definition of Ready: kriteria kualitas yang harus dipenuhi setiap fitur sebelum masuk sprint dan sebelum rilis",
+          "Product Metrics: velocity, cycle time, feature adoption rate, dan NPS per fitur — diukur setiap sprint",
+        ],
+      },
     ],
-    outputs: ["Governance Model", "Steering Committee Charter", "RACI Matrix", "PMO Charter"],
+    outputs: ["Governance Model", "Steering Committee Charter", "RACI Matrix", "PMO Charter", "IHCMIS Platform Governance Charter", "IHCMIS Product Roadmap"],
   },
 
   // ─── BAB 12 ──────────────────────────────────────────────────────────────
@@ -386,9 +479,22 @@ export const chapters: Chapter[] = [
       { number: "12.9", title: "Generative AI untuk HR (Job Description, Screening, Chatbot)", content: "Eksperimen dan implementasi teknologi GenAI untuk membantu tugas-tugas rutin HR." },
       { number: "12.10", title: "AI Ethics & Bias Detection Framework", content: "Kerangka etika penggunaan AI untuk mencegah bias dalam proses seleksi dan penilaian karyawan." },
       { number: "12.11", title: "Emerging Technology Vision 2028–2030", content: "Meneropong teknologi masa depan seperti Metaverse HR atau Blockchain untuk kredensial." },
+      {
+        number: "12.12",
+        title: "Responsible AI & Ethical AI Operations",
+        content: "Layer ketiga dari kerangka AI lengkap HCIS — melengkapi 12.10 (policy: aturan main AI) dan 14.8 (governance: siklus hidup model) dengan dimensi operasional: bagaimana AI dijalankan secara bertanggung jawab setiap hari. Fokus pada mekanisme konkret yang memastikan keputusan berbasis AI tetap adil, transparan, dan dapat dipulihkan — terutama untuk keputusan yang berdampak langsung pada karir dan kesejahteraan karyawan.",
+        keyPoints: [
+          "Human-in-the-Loop Design: penetapan daftar keputusan HR yang TIDAK boleh diambil secara otonom oleh AI tanpa tinjauan manusia (contoh: terminasi, penilaian kinerja final, seleksi promosi) — disertai prosedur review yang wajib",
+          "AI Explainability untuk End User: mekanisme penjelasan keputusan AI kepada karyawan yang terdampak (berbeda dari 14.8 yang fokus ke auditor) — misal: 'Mengapa rekomendasimu tidak lolos screening?' harus bisa dijawab sistem",
+          "AI Fallback Mechanisms: prosedur operasional bila AI gagal, low-confidence, atau unavailable — termasuk threshold confidence minimum, fallback ke proses manual, dan SLA untuk resolusi",
+          "Ethical Escalation Path: alur eskalasi yang jelas bila AI menghasilkan output yang dirasakan diskriminatif atau tidak adil oleh karyawan — berbeda dari AI Incident Response di 14.8 yang menangani kegagalan teknis",
+          "AI Output Transparency Charter: kebijakan tentang kapan dan bagaimana organisasi wajib memberitahu karyawan bahwa keputusan dibantu atau dipengaruhi oleh AI",
+          "Responsible AI Training for HR: program literasi AI wajib bagi tim HR yang menggunakan tools AI dalam proses rekrutmen, penilaian, atau pengembangan karyawan",
+        ],
+      },
     ],
-    outputs: ["Technology Strategy", "AI Adoption Roadmap", "AI Ethics Guidelines"],
-    frameworks: ["Gartner Tech Radar", "SAP BTP Architecture", "NIST AI Risk Framework"],
+    outputs: ["Technology Strategy", "AI Adoption Roadmap", "AI Ethics Guidelines", "Responsible AI Operations Playbook"],
+    frameworks: ["Gartner Tech Radar", "SAP BTP Architecture", "NIST AI Risk Framework", "EU AI Act (High-Risk AI Systems)", "IEEE Ethically Aligned Design"],
   },
 
   // ─── BAB 13 (NEW) ────────────────────────────────────────────────────────
@@ -436,8 +542,22 @@ export const chapters: Chapter[] = [
       { number: "14.5", title: "Workforce Analytics Strategy", content: "Pemanfaatan data SDM untuk memprediksi kebutuhan tenaga kerja dan retensi bakat." },
       { number: "14.6", title: "Reporting Framework", content: "Standarisasi format dan jadwal laporan operasional maupun strategis HR." },
       { number: "14.7", title: "Predictive Analytics Vision", content: "Menggunakan pemodelan data untuk meramalkan tren SDM di masa depan." },
+      {
+        number: "14.8",
+        title: "Data & AI Governance",
+        content: "Jembatan antara BAB 12 (AI Technology Roadmap) dan BAB 14 (Analytics Strategy) — mendefinisikan tata kelola khusus untuk model AI/ML dan data yang menggerakkannya. Berbeda dari 11.8 (Data Governance Model) yang mengatur struktur kepemilikan data secara umum, dan 14.4 (Data Governance) yang mengatur kualitas data operasional: sub-bab ini berfokus pada siklus hidup model AI — dari development, deployment, monitoring, hingga retirement — dan memastikan setiap keputusan berbasis AI dapat dipertanggungjawabkan kepada auditor internal maupun regulator.",
+        keyPoints: [
+          "AI Model Governance: model registry, versioning, approval gate sebelum model masuk production, dan retirement policy untuk model yang sudah usang",
+          "AI Auditability & Explainability: kemampuan menjelaskan logika keputusan model AI (misal: rekomendasi promosi, prediksi turnover) kepada auditor internal dan regulator — wajib selaras dengan UU PDP (BAB 13)",
+          "Data Lineage untuk AI: menelusuri secara penuh data apa yang digunakan untuk melatih model, dari mana asalnya, dan apakah sudah melalui proses quality check",
+          "AI-specific Data Stewardship: penetapan Data Steward yang bertanggung jawab atas kualitas dan bias data training — peran berbeda dari Data Steward operasional di 14.4",
+          "Model Performance Monitoring: pemantauan drift model secara berkala (misal: model prediksi turnover yang dilatih data 2026 bisa bias di 2028) dengan trigger untuk retraining",
+          "AI Incident Response: prosedur penanganan bila model menghasilkan keputusan yang diskriminatif atau tidak akurat — eskalasi ke AI Ethics Board (12.10)",
+        ],
+      },
     ],
-    outputs: ["Workforce Intelligence Model"],
+    outputs: ["Workforce Intelligence Model", "AI Model Registry", "Data Lineage Map", "AI Auditability Report"],
+    frameworks: ["ISO/IEC 42001 (AI Management)", "EU AI Act Principles", "NIST AI RMF"],
   },
 
   // ─── BAB 15 ──────────────────────────────────────────────────────────────
@@ -533,9 +653,22 @@ export const chapters: Chapter[] = [
       { number: "18.4", title: "Adoption Metrics", content: "Mengukur seberapa aktif karyawan menggunakan fitur-fitur baru di sistem." },
       { number: "18.5", title: "Value-Based Metrics", content: "Pengukuran nilai tambah ekonomis yang dihasilkan dari transformasi digital." },
       { number: "18.6", title: "ESG & Workforce Diversity Metrics", content: "Pelaporan otomatis mengenai keberagaman dan inklusivitas tenaga kerja." },
+      {
+        number: "18.7",
+        title: "Value Realization Tracking",
+        content: "Mekanisme terstruktur untuk membuktikan bahwa manfaat yang dijanjikan dalam BAB 17 (Benefit Realization Plan) benar-benar terwujud — membandingkan benefit aktual vs. yang direncanakan secara periodik. Berbeda dari KPI operasional: Value Realization Tracking berfokus pada *pembuktian ROI investasi* kepada Direksi dan pemegang anggaran, bukan hanya mengukur kinerja sistem sehari-hari.",
+        keyPoints: [
+          "Baseline Measurement: pengukuran kondisi awal sebelum go-live sebagai titik acuan perbandingan",
+          "Benefit Harvesting Reviews: sesi evaluasi periodik (triwulan) antara tim proyek dan business owner",
+          "Actual vs. Planned Dashboard: visualisasi gap antara benefit yang dijanjikan dan benefit yang sudah terealisasi",
+          "Benefit Attribution Model: metodologi untuk memisahkan dampak HCIS dari faktor eksternal lainnya",
+          "Escalation Trigger: threshold yang memicu eskalasi ke Steering Committee bila benefit off-track",
+          "Benefits Closure Report: laporan formal di akhir setiap fase yang menyatakan benefit telah atau belum terealisasi",
+        ],
+      },
     ],
-    outputs: ["KPI Dashboard Framework", "ESG Reporting Template"],
-    frameworks: ["Balanced Scorecard", "OKR (Objectives & Key Results)"],
+    outputs: ["KPI Dashboard Framework", "ESG Reporting Template", "Value Realization Dashboard"],
+    frameworks: ["Balanced Scorecard", "OKR (Objectives & Key Results)", "Benefits Realization Management (BRM)"],
   },
 
   // ─── BAB 19 ──────────────────────────────────────────────────────────────
@@ -618,6 +751,7 @@ export const appendix = [
   { code: "I", title: "Data Privacy Impact Assessment (DPIA)" },
   { code: "J", title: "Vendor Evaluation Scorecard" },
   { code: "K", title: "Hire-to-Retire Process Blueprint" },
+  { code: "L", title: "Service Blueprint Master (HR Services)" },
 ];
 
 export const timelinePhases = [

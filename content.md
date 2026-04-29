@@ -1,7 +1,7 @@
 # 📘 Daftar Isi Dokumen Roadmap HCIS 2026–2030
 
-> **Versi:** 2.0 — Diperbarui berdasarkan Gap Analysis Global Best Practice (Gartner, Deloitte, SAP Activate, TOGAF, ISO)
-> **Perubahan:** +4 Bab Baru · 6 Bab Diperluas · +4 Lampiran Baru · Total 21 Bab + 11 Lampiran
+> **Versi:** 2.7 — Finalisasi: Service Management Trinity (SLA+XLA+Cost) · AI Governance 3-Layer · Digital HR Product · Experience Architecture
+> **Perubahan:** +4 Bab Baru · 6 Bab Diperluas · +8 Sub-Bab Baru (5.10, 5.11, 7.12, 11.11, 11.12, 12.12, 14.8, 18.7) · +5 Lampiran Baru · Total 21 Bab + 12 Lampiran (A–L)
 
 ---
 
@@ -51,7 +51,7 @@ Isi:
 3.1 Gambaran Umum Sistem HC Saat Ini
 3.2 Daftar Aplikasi HR Eksisting
 3.3 Landscape SAP HR
-3.4 Landscape IHCMIS Eksisting (jika sudah ada)
+3.4 Landscape IHCMIS Eksisting
 3.5 HR Process Assessment
 3.6 HR Data Assessment
 3.7 Integration Assessment
@@ -99,10 +99,22 @@ Isi:
 5.7 Case Management & HR Ticketing Model
 5.8 HR Contact Center Strategy
 5.9 Continuous Service Improvement
+5.10 HR Service Experience Level Agreement (XLA) *(baru — SLA → XLA)*
+5.11 Service Cost Transparency Model *(baru — cost visibility per transaksi)*
 
-Framework: ITIL v4 (adapted for HR) · Gartner HR Service Delivery Model
+> **Catatan — Service Management Trinity BAB 5:**
+>
+> | Layer | Sub-bab | Pertanyaan |
+> |---|---|---|
+> | Quality | 5.6 SLA | "Apakah layanan memenuhi standar teknis?" |
+> | Experience | 5.10 XLA | "Apakah karyawan merasa terlayani dengan baik?" |
+> | Cost | 5.11 Cost | "Berapa biaya nyata setiap transaksi layanan HR?" |
+>
+> **5.11 vs BAB 17 (TCO):** BAB 17 mengukur biaya total *investasi program* (lisensi, implementasi, infrastructure). Sub-bab 5.11 mengukur biaya per *unit transaksi operasional* — dua granularitas yang berbeda dan saling melengkapi.
 
-Output: HR Service Delivery Blueprint · Service Catalog · SLA Framework
+Framework: ITIL v4 (adapted for HR) · Gartner HR Service Delivery Model · XLA (Gartner 2019+) · Customer Effort Score · **Activity-Based Costing (ABC)** · APQC HR Cost Benchmarking
+
+Output: HR Service Delivery Blueprint · Service Catalog · SLA Framework · XLA Dashboard · **Service Cost Catalog** · **Cost-Quality-Experience Dashboard**
 
 ---
 
@@ -115,16 +127,19 @@ Isi:
 6.1 Employee Experience Vision & Principles
 6.2 Employee Persona Development
 6.3 Employee Journey Mapping (Hire-to-Retire)
-6.4 Moment-That-Matters Analysis
-6.5 ESS/MSS UX Design Principles
-6.6 Mobile-First Interaction Design
-6.7 eNPS & EX Measurement Framework
-6.8 Well-being & Digital Ergonomics
-6.9 EX Feedback Loop & Continuous Listening
+6.4 **Service Blueprint Design** ⭐ *(baru — jembatan metodologis EX → Service Delivery)*
+6.5 Moment-That-Matters Analysis
+6.6 ESS/MSS UX Design Principles
+6.7 Mobile-First Interaction Design
+6.8 eNPS & EX Measurement Framework
+6.9 Well-being & Digital Ergonomics
+6.10 EX Feedback Loop & Continuous Listening
 
-Framework: Design Thinking (IDEO) · Gartner EX Framework · eNPS Methodology
+> **Catatan 6.4 — Service Blueprint:** Artefak visual yang memetakan secara simultan frontstage (interaksi karyawan), line of visibility, backstage (proses HR/manajer), dan support processes (SAP, IHCMIS, middleware). Merupakan jembatan metodologis antara Journey Map (6.3) dan HR Service Delivery Model (BAB 5). Lihat juga Lampiran L.
 
-Output: EX Blueprint · Employee Persona Catalog · Journey Maps
+Framework: Design Thinking (IDEO) · Gartner EX Framework · eNPS Methodology · Service Design (Nielsen Norman Group)
+
+Output: EX Blueprint · Employee Persona Catalog · Journey Maps · **Service Blueprint Master (Lampiran L)**
 
 ---
 
@@ -145,10 +160,11 @@ Isi:
 7.9 Data Architecture
 7.10 Technology Architecture
 7.11 Security Architecture
+7.12 Experience Architecture Mapping *(baru — jembatan EX Design → Application)*
 
-Framework: TOGAF ADM · SAP Reference Architecture
+Framework: TOGAF ADM · SAP Reference Architecture · Service Design (NNG)
 
-Output: Target HCIS Blueprint · Application Architecture Diagram
+Output: Target HCIS Blueprint · Application Architecture Diagram · Experience Architecture Map
 
 ---
 
@@ -227,8 +243,12 @@ Isi:
 11.8 Data Governance Model
 11.9 Vendor Governance
 11.10 Quality Assurance Framework
+11.11 Digital HR Platform Governance *(baru — IHCMIS lifecycle)*
+11.12 Digital HR Product Management Model *(baru — IHCMIS sebagai produk digital)*
 
-Output: Governance Model · Steering Committee Charter · RACI Matrix · PMO Charter
+> **Catatan 11.12:** IHCMIS adalah produk, bukan sekadar sistem. Sub-bab ini mendefinisikan Product Owner, Product Backlog, Release Cycle, Product Roadmap 12–18 bulan, dan pipeline Feedback → Backlog dari VoE/eNPS. Melengkapi 11.11 (governance = rules) dengan model eksekusi operasional (product management = execution).
+
+Output: Governance Model · Steering Committee Charter · RACI Matrix · PMO Charter · IHCMIS Platform Governance Charter · **IHCMIS Product Roadmap**
 
 ---
 
@@ -251,10 +271,18 @@ Isi:
 12.9 Generative AI untuk HR (Job Description, Screening, Chatbot) *(baru)*
 12.10 AI Ethics & Bias Detection Framework *(baru)*
 12.11 Emerging Technology Vision 2028–2030 *(baru)*
+12.12 Responsible AI & Ethical AI Operations *(baru — layer operasional AI)*
 
-Framework: Gartner Tech Radar · SAP BTP Architecture · NIST AI Risk Framework
+> **Catatan 12.12 — Tiga Layer AI HCIS:**
+> - 12.10 = Policy layer: "Apa aturan main AI kita?" (prinsip etika & bias detection)
+> - 14.8 = Governance layer: "Bagaimana model AI dikelola sebagai aset?" (model lifecycle & auditability)
+> - 12.12 = Operations layer: "Bagaimana AI dioperasikan secara bertanggung jawab sehari-hari?" (HITL, fallback, escalation)
+>
+> Komponen baru yang genuinely tidak ada di 12.10 atau 14.8: **Human-in-the-Loop Design**, **AI Fallback Mechanisms**, **Ethical Escalation Path** (berbeda dari AI Incident Response teknis di 14.8), dan **AI Output Transparency Charter**.
 
-Output: Technology Strategy · AI Adoption Roadmap · AI Ethics Guidelines
+Framework: Gartner Tech Radar · SAP BTP Architecture · NIST AI Risk Framework · EU AI Act (High-Risk AI Systems) · IEEE Ethically Aligned Design
+
+Output: Technology Strategy · AI Adoption Roadmap · AI Ethics Guidelines · **Responsible AI Operations Playbook**
 
 ---
 
@@ -294,8 +322,13 @@ Isi:
 14.5 Workforce Analytics Strategy
 14.6 Reporting Framework
 14.7 Predictive Analytics Vision
+14.8 Data & AI Governance *(baru — model governance & AI auditability)*
 
-Output: Workforce Intelligence Model
+> **Catatan 14.8 — Scope:** Sub-bab ini BUKAN mengulang 11.8 (Data Governance Model) atau 14.4 (Data Governance). Fokusnya adalah siklus hidup model AI/ML: model registry, versioning, AI auditability, data lineage untuk training data, model drift monitoring, dan AI incident response. Jembatan eksplisit antara BAB 12 (AI Technology) ↔ BAB 14 (Analytics). Selaras dengan ISO/IEC 42001 dan EU AI Act Principles.
+
+Framework: ISO/IEC 42001 (AI Management) · EU AI Act Principles · NIST AI RMF
+
+Output: Workforce Intelligence Model · AI Model Registry · Data Lineage Map · AI Auditability Report
 
 ---
 
@@ -374,10 +407,11 @@ Isi:
 18.4 Adoption Metrics
 18.5 Value-Based Metrics
 18.6 ESG & Workforce Diversity Metrics *(baru)*
+18.7 Value Realization Tracking *(baru — benefit aktual vs. rencana)*
 
-Framework: Balanced Scorecard · OKR (Objectives & Key Results)
+Framework: Balanced Scorecard · OKR (Objectives & Key Results) · Benefits Realization Management (BRM)
 
-Output: KPI Dashboard Framework · ESG Reporting Template
+Output: KPI Dashboard Framework · ESG Reporting Template · Value Realization Dashboard
 
 ---
 
@@ -448,3 +482,4 @@ H. RACI Matrix *(baru)*
 I. Data Privacy Impact Assessment (DPIA) *(baru)*
 J. Vendor Evaluation Scorecard *(baru)*
 K. Hire-to-Retire Process Blueprint *(baru)*
+L. **Service Blueprint Master (HR Services)** ⭐ *(baru — referensi BAB 6.4)*
