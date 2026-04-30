@@ -1,4 +1,5 @@
 import { appendix } from "@/data/chapters";
+import ThemeToggle from "@/components/ThemeToggle";
 import BottomNav from "@/components/BottomNav";
 import Link from "next/link";
 
@@ -30,10 +31,11 @@ export default function LampiranPage() {
             <path d="M19 12H5M5 12l7 7M5 12l7-7" />
           </svg>
         </Link>
-        <div>
+        <div className="flex-1">
           <p className="text-xs text-slate-500">Roadmap HCIS 2026–2030</p>
           <p className="text-sm font-semibold text-white">Lampiran (Appendix)</p>
         </div>
+        <ThemeToggle />
       </div>
 
       <div className="px-4 max-w-lg mx-auto pt-4">

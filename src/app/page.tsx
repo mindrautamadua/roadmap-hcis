@@ -3,6 +3,7 @@ import ChapterCard from "@/components/ChapterCard";
 import TimelineBar from "@/components/TimelineBar";
 import StatCard from "@/components/StatCard";
 import BottomNav from "@/components/BottomNav";
+import HomeHeader from "@/components/HomeHeader";
 
 const totalSections = chapters.reduce((acc, c) => acc + c.sections.length, 0);
 const newCount = chapters.filter((c) => c.isNew).length;
@@ -10,13 +11,14 @@ const newCount = chapters.filter((c) => c.isNew).length;
 export default function Home() {
   return (
     <div className="min-h-screen dot-grid pb-24">
+      <HomeHeader />
       {/* Hero Header */}
       <div className="relative overflow-hidden">
         {/* Background glow orbs */}
         <div className="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-blue-600/20 blur-3xl pointer-events-none" />
         <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-purple-600/20 blur-3xl pointer-events-none" />
 
-        <div className="relative px-4 pt-14 pb-8 max-w-lg mx-auto">
+        <div className="relative px-4 pt-6 pb-8 max-w-lg mx-auto">
           {/* Badge */}
           <div className="flex items-center gap-2 mb-4 animate-fade-in-up">
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-light">

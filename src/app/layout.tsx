@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const geist = Geist({
   variable: "--font-geist-sans",
@@ -33,8 +34,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={`${geist.variable} h-full`}>
-      <body className="min-h-full flex flex-col bg-[#060b18] text-[#e8ecf4]">
-        {children}
+      <head>
+        {/* Anti-flash: apply saved theme before paint */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem('hcis-theme');if(t==='light')document.documentElement.classList.add('light');}catch(e){}`,
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col">
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

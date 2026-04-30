@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BottomNav from "@/components/BottomNav";
+import ThemeToggle from "@/components/ThemeToggle";
 import GlossaryContent from "@/components/GlossaryContent";
 import { glossaryTerms, glossaryCategories } from "@/data/glossary";
 
@@ -26,6 +27,7 @@ export default function GlossaryPage() {
         <span className="text-xs text-slate-500 glass-light px-2 py-1 rounded-lg flex-shrink-0">
           {glossaryTerms.length} istilah
         </span>
+        <ThemeToggle />
       </div>
 
       <div className="px-4 max-w-lg mx-auto pt-4">

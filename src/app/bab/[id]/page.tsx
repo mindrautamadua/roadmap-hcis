@@ -2,6 +2,7 @@ import { chapters } from "@/data/chapters";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import BottomNav from "@/components/BottomNav";
+import ThemeToggle from "@/components/ThemeToggle";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -41,9 +42,8 @@ export default async function ChapterPage({ params }: Props) {
           <p className="text-xs text-slate-500">Roadmap HCIS 2026–2030</p>
           <p className="text-sm font-semibold text-white truncate">{chapter.bab}</p>
         </div>
-        <div className="text-right">
-          <p className="text-xs text-slate-500">{chapterId} / {chapters.length}</p>
-        </div>
+        <p className="text-xs text-slate-500 flex-shrink-0">{chapterId} / {chapters.length}</p>
+        <ThemeToggle />
       </div>
 
       <div className="px-4 max-w-lg mx-auto pt-4">

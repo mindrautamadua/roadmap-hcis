@@ -2,6 +2,7 @@ import { chapters } from "@/data/chapters";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import BottomNav from "@/components/BottomNav";
+import ThemeToggle from "@/components/ThemeToggle";
 
 interface Props {
   params: Promise<{ id: string; section: string }>;
@@ -65,6 +66,7 @@ export default async function SectionPage({ params }: Props) {
           <p className="text-sm font-semibold text-white truncate">{sec.number} {sec.title}</p>
         </div>
         <span className="text-xs text-slate-500 flex-shrink-0">{idx + 1}/{chapter.sections.length}</span>
+        <ThemeToggle />
       </div>
 
       <div className="px-4 max-w-lg mx-auto pt-4 space-y-4">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BottomNav from "@/components/BottomNav";
+import ThemeToggle from "@/components/ThemeToggle";
 import { chapters } from "@/data/chapters";
 import {
   metaDomains,
@@ -34,10 +35,11 @@ export default function MetaModelPage() {
             <path d="M19 12H5M5 12l7 7M5 12l7-7" />
           </svg>
         </Link>
-        <div>
+        <div className="flex-1">
           <p className="text-xs text-slate-500">Roadmap HCIS 2026–2030</p>
           <p className="text-sm font-semibold text-white">Meta-Model & Peta Hubungan</p>
         </div>
+        <ThemeToggle />
       </div>
 
       <div className="px-4 max-w-lg mx-auto pt-4 space-y-5">
