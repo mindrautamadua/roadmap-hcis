@@ -355,6 +355,7 @@ export const chapters: Chapter[] = [
       { number: "10.7", title: "Data Migration Strategy & Timeline", content: "Urutan waktu penjadwalan fase migrasi data (Ekstraksi, Transformasi, dan *Load*)." },
       { number: "10.8", title: "Legacy Data Cleansing & Mapping", content: "Jadwal pembersihan data dari pangkalan sistem lama yang kotor (*Legacy system*) sebelum pemindahan." },
       { number: "10.9", title: "Cutover Planning & Go-Live Checklist", content: "Perencanaan gladi resik transisi akhir peralihan pemutusan sistem lama (*Cutover*) serta daftar periksa wajib." },
+      { number: "10.10", title: "Rollout Strategy", content: "Pemetaan strategi peluncuran sistem — apakah dilakukan bertahap per wilayah (*Phased Rollout*) atau serentak ke seluruh organisasi (*Big Bang*)." },
     ],
     outputs: ["Visual Multi-Year Roadmap 2026–2030", "Data Migration Plan", "Cutover Checklist"],
   },
@@ -381,8 +382,10 @@ export const chapters: Chapter[] = [
       { number: "11.8", title: "Leadership Transformation & Digital Culture", content: "Program evolusi *mindset* para pimpinan unit agar tangkas dan proaktif dalam mengelola pegawai di era *hybrid* dan *AI-augmented workforce*." },
       { number: "11.9", title: "Change Management Structure", content: "Tim peredam *shock* kultur, pelaksana komunikasi, serta pendamping edukasi (*Change Champions*)." },
       { number: "11.10", title: "Data Governance Model", content: "Tata kepengurusan penjamin integritas *Data Master*, mengatur otoritas pemilik ranah jenis data pegawai (*Data Steward*)." },
+      { number: "11.11", title: "Vendor Governance", content: "Instrumen tata kelola evaluasi kinerja penyerahan perangkat lunak pihak vendor, termasuk manajemen sanksi pelanggaran (*SLA Breach*)." },
+      { number: "11.12", title: "Quality Assurance Framework", content: "Mekanisme pengujian kualitatif terstandar untuk memverifikasi kesesuaian produk rilis *developer* dengan cetak biru yang diminta." },
       {
-        number: "11.11", title: "Vendor Governance", content: "Instrumen tata kelola evaluasi kinerja penyerahan perangkat lunak pihak vendor, termasuk manajemen sanksi pelanggaran (*SLA Breach*).",
+        number: "11.13", title: "Digital HR Platform Governance", content: "Tata tertib yang mengatur siklus hidup keseluruhan arsitektur portal IHCMIS; mencegah penambahan fitur aplikasi tanpa koordinasi terpusat.",
         keyPoints: [
           "IHCMIS Release Management: siklus rilis fitur (major/minor/patch) dengan approval gate yang jelas",
           "Feature Roadmap Governance: proses pengajuan, evaluasi, dan prioritisasi permintaan fitur baru dari unit bisnis",
@@ -393,7 +396,7 @@ export const chapters: Chapter[] = [
         ],
       },
       {
-        number: "11.12", title: "Quality Assurance Framework", content: "Mekanisme pengujian kualitatif terstandar untuk memverifikasi kesesuaian produk rilis *developer* dengan cetak biru yang diminta.",
+        number: "11.14", title: "Digital HR Product Management Model", content: "Transisi konsep IHCMIS dari sekadar IT-Proyek menjadi komoditas \"Product\", melalui mekanisme kerja tangkas/Agile yang dikelola *Product Owner*.",
         keyPoints: [
           "Product Owner & Product Team: penetapan Product Owner IHCMIS dari sisi bisnis HC, didukung tim lintas-fungsi (IT, HR, UX)",
           "Product Backlog Management: pengelolaan backlog berbasis Epics → User Stories → Tasks, diprioritaskan dengan framework WSJF atau MoSCoW",
@@ -469,6 +472,7 @@ export const chapters: Chapter[] = [
       { number: "13.8", title: "Data Residency & Sovereignty Requirements", content: "Konfigurasi ketaatan agar domisili *server cloud / datacenter* tetap di ranah hukum fisik Republik Indonesia sesuai perundang-undangan." },
       { number: "13.9", title: "Compliance Monitoring Framework", content: "Konfigurasi pemantauan sinyal indikator pada saat suatu data penggajian tersetting melenceng dari batas terendah regulasi kompensasi." },
       { number: "13.10", title: "Legal Hold & eDiscovery", content: "Protokol pengumpulan data/dokumen kepegawaian dalam mode non-hapus (*Legal-Hold*) untuk dipertanggungjawabkan pada saat litigas persidangan hukum terkait (*Dispute case*)." },
+      { number: "13.11", title: "UU ITE & Digital Signature Kepatuhan", content: "Pemenuhan validasi hukum UU ITE pada pengesahan kontrak *e-sign* HR dan validitas laporan elektronik operasional." },
     ],
     outputs: ["Compliance Matrix", "DPIA Report", "Regulatory Integration Architecture"],
     frameworks: ["ISO 27701 (Privacy)", "UU No. 27 Tahun 2022 (UU PDP)", "BPJS Compliance Standard"],
@@ -528,6 +532,7 @@ export const chapters: Chapter[] = [
       { number: "15.6", title: "Super User Network", content: "Pemberdayaan jejaring asisten mandiri/kader fungsional di tiap regional fungsi staf korporasi sebagai lini edukasi lapis 1 terdekat." },
       { number: "15.7", title: "AI-Workforce Coexistence & Human Transition", content: "Penanganan aspek psikologis dalam menavigasi kecemasan (*job displacement anxiety*) akibat masuknya otomasi dan *Agentic AI*, berfokus pada kolaborasi harmonis mesin dan manusia." },
       { number: "15.8", title: "Resistance Management", content: "Pendekatan taktis dalam persuasi/negosiasi keluhan khusus pengguna kritis skeptis (Kubu Anti-Perubahan)." },
+      { number: "15.9", title: "Change Impact Assessment", content: "Parameter dokumentatif pemetaan mendetail yang menjelaskan poin sentral proses *Before vs After* harian manajer setelah integrasi penuh." },
     ],
     outputs: ["Change Roadmap", "DAP Implementation Plan", "Super User Program"],
     frameworks: ["Prosci ADKAR", "Kotter 8-Step Change Model"],
