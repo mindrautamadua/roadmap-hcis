@@ -68,6 +68,11 @@ export default function LampiranPage() {
                     )}
                   </div>
                   <h3 className="text-sm font-semibold text-white mt-1.5">{item.title}</h3>
+                  {item.description && (
+                    <p className="text-xs text-slate-400 mt-1 line-clamp-2 leading-relaxed">
+                      {item.description}
+                    </p>
+                  )}
                 </div>
                 <div className={`w-8 h-8 rounded-xl glass-light border ${style.border} flex items-center justify-center flex-shrink-0`}>
                   {href ? (
